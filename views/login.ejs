@@ -1,0 +1,37 @@
+<%- include("partials/header.ejs") %>
+
+
+<div class="main">
+    <div class="nav-bar">
+        <a>⭐⭐</a>
+        <div class="float-right">
+        <button class="btn btn-nav" >Sign Up</button>
+        <button class="btn" >Login</button>
+        </div>
+    </div>
+    <div>
+    </div>
+    <div class="box flex">
+        <div class="img Divide-50">
+           <a ><img class="img-login" src="Images/login.png" alt=""></a>
+        </div>
+        <div class="form Divide-50">
+          <h3>Login To Analysis</h3>
+            <form class="form-box" action="/login" method="POST">
+                <div class="form-group">
+                  <!-- <label for="email">Email</label> -->
+                  <input type="email" class="form-control" name="username" required placeholder="Entre E-Mail">
+                </div>
+                <div class="form-group">
+                  <!-- <label for="password">Password</label> -->
+                  <input retype="password" placeholder="Entre Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" class="form-control" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-submit">Sign-In</button>
+                <button class="btn-forgot">Forgot Password</button>
+              </form>
+        </div>
+    </div>
+</div>
+
+
+<%- include("partials/footer.ejs") %>
