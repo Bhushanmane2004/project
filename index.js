@@ -1,9 +1,11 @@
 import express from "express";
 import bodyParser from "body-parser";
 import mysql from "mysql2";
+import dotenv from "dotenv"
 
 const app = express();
 const port = 3000;
+const env =dotenv.config();
 
 // Set up body parser middleware
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -11,10 +13,10 @@ app.use(express.static("public"));
 
 // Create MySQL connection
 const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "Bhushan@01",
-    database: "Login",
+    host: process.env.host,
+    user: process.env.user,
+    password: process.env.password,
+    database: process.env.database,
     insecureAuth: true
 });
 
@@ -51,7 +53,7 @@ app.post("/login", (req, res) => {
                 res.send("Login successful");
             } else {
                 console.log("Password does not match");
-                res.send("Incorrect password");
+                res.send("<script>alert('Incorrect password');</script>");
             }
         } else {
             console.log("User does not exist");
